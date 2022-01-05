@@ -1,0 +1,3 @@
+-define(RootDir,"kubelet.dir").
+-define(HostAppGitPath,"https://github.com/joq62/kubelet.git").
+-define(HostApp,kubelet).
