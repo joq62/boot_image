@@ -9,7 +9,6 @@
 %% --------------------------------------------------------------------
 %% Include files
 %% --------------------------------------------------------------------
-
 %% --------------------------------------------------------------------
 
 %% External exports
@@ -29,18 +28,25 @@
 start()->
   %  io:format("~p~n",[{"Start setup",?MODULE,?FUNCTION_NAME,?LINE}]),
     ok=setup(),
-  %  io:format("~p~n",[{"Stop setup",?MODULE,?FUNCTION_NAME,?LINE}]),
+    io:format("~p~n",[{"Stop setup",?MODULE,?FUNCTION_NAME,?LINE}]),
 
-  %  io:format("~p~n",[{"Start init_test()",?MODULE,?FUNCTION_NAME,?LINE}]),
-    ok=init_test:start(),
-    io:format("~p~n",[{"Stop init_test()",?MODULE,?FUNCTION_NAME,?LINE}]),
 
- %  io:format("~p~n",[{"Start monkey_test()",?MODULE,?FUNCTION_NAME,?LINE}]),
-  %  ok=monkey_test:start(),
-  %  io:format("~p~n",[{"Stop monkey_test()",?MODULE,?FUNCTION_NAME,?LINE}]),
+  %  io:format("~p~n",[{"Start cluster_start_test()",?MODULE,?FUNCTION_NAME,?LINE}]),
+  %  ok=cluster_start_test:start(),
+  %  io:format("~p~n",[{"Stop cluster_start_test()",?MODULE,?FUNCTION_NAME,?LINE}]),
 
- %   ok= controller_test:start(),
- %   io:format("~p~n",[{"Stop controller_test()",?MODULE,?FUNCTION_NAME,?LINE}]),
+    io:format("~p~n",[{"Start prototype_test()",?MODULE,?FUNCTION_NAME,?LINE}]),
+    ok=prototype_test:start(),
+    io:format("~p~n",[{"Stop prototype_test()",?MODULE,?FUNCTION_NAME,?LINE}]),
+
+  %  io:format("~p~n",[{"Start distributed_test()",?MODULE,?FUNCTION_NAME,?LINE}]),
+%    ok=single_test:start(),
+ %   io:format("~p~n",[{"Stop distributed_test()",?MODULE,?FUNCTION_NAME,?LINE}]),
+
+
+ %  io:format("~p~n",[{"Start distributed_test()",?MODULE,?FUNCTION_NAME,?LINE}]),
+ %   ok=distributed_test:start(),
+  %  io:format("~p~n",[{"Stop distributed_test()",?MODULE,?FUNCTION_NAME,?LINE}]),
 
   %  io:format("~p~n",[{"Start monkey()",?MODULE,?FUNCTION_NAME,?LINE}]),
   %  ok=monkey(),
@@ -57,32 +63,6 @@ start()->
 
 
 
-%% --------------------------------------------------------------------
-%% Function:start/0 
-%% Description: Initiate the eunit tests, set upp needed processes etc
-%% Returns: non
-%% --------------------------------------------------------------------
-controller_test()->
-   ok.
-
-
-%% --------------------------------------------------------------------
-%% Function:start/0 
-%% Description: Initiate the eunit tests, set upp needed processes etc
-%% Returns: non
-%% --------------------------------------------------------------------
-host_test()->
-    host_test:start().
-   
-%% --------------------------------------------------------------------
-%% Function:start/0 
-%% Description: Initiate the eunit tests, set upp needed processes etc
-%% Returns: non
-%% --------------------------------------------------------------------
-dbase_test()->
-    dbase_test:start().
-
-
 
 %% --------------------------------------------------------------------
 %% Function:start/0 
@@ -91,8 +71,8 @@ dbase_test()->
 %% --------------------------------------------------------------------
 
 setup()->
- 
-   ok.
+    ok=test_nodes:start_nodes(),
+    ok.
 
 
 %% --------------------------------------------------------------------

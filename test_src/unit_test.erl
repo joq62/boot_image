@@ -84,7 +84,12 @@ ping()->
 %% Server functions
 %% ====================================================================
 -define(TestSuit,[{app_start_test,start,[],20*5000}
-		 ,{test,start,[],infinity}
+		 ,{test,start,[],20*5000}
+	%	 ,{acces_test,start,[],4*5000} %%%,
+	%	 ,{clone_test,start,[],4*5000}
+	%	 ,{start_vm_test,start,[],4*5000}
+	%	 ,{master_test,start,[],5*5000}
+		  %{dbase_cluster_test,start,[],5*5000}
 		 ]).
 %% --------------------------------------------------------------------
 %% Function: init/1

@@ -9,7 +9,9 @@
 %% --------------------------------------------------------------------
 %% Include files
 %% --------------------------------------------------------------------
--include_lib("eunit/include/eunit.hrl").
+
+
+
 %% --------------------------------------------------------------------
 
 %% External exports
@@ -27,21 +29,19 @@
 %% Returns: non
 %% --------------------------------------------------------------------
 start()->
-    ?debugMsg("Start setup"),
-    ?assertEqual(ok,setup()),
-    ?debugMsg("stop setup"),
-
- %   ?debugMsg("Start testXXX"),
- %   ?assertEqual(ok,single_node()),
- %   ?debugMsg("stop single_node"),
-    
+    io:format("~p~n",[{"Start setup",?MODULE,?FUNCTION_NAME,?LINE}]),
+    ok=setup(),
+    io:format("~p~n",[{"Stop setup",?MODULE,?FUNCTION_NAME,?LINE}]),
+ %   
       %% End application tests
-    ?debugMsg("Start cleanup"),
-    ?assertEqual(ok,cleanup()),
-    ?debugMsg("Stop cleanup"),
-
-    ?debugMsg("------>"++atom_to_list(?MODULE)++" ENDED SUCCESSFUL ---------"),
+    io:format("~p~n",[{"Start cleanup",?MODULE,?FUNCTION_NAME,?LINE}]),
+    ok=cleanup(),
+    io:format("~p~n",[{"Stop cleaup",?MODULE,?FUNCTION_NAME,?LINE}]),
+    
+    io:format("------>"++atom_to_list(?MODULE)++" ENDED SUCCESSFUL ---------"),
     ok.
+
+
 
 
 %% --------------------------------------------------------------------
@@ -51,7 +51,7 @@ start()->
 %% --------------------------------------------------------------------
 
 setup()->
-   
+ 
     ok.
 
 
